@@ -12,7 +12,9 @@
   "scripts": {
     "test": "eslint \"**/*.js\" --cache",
     "preversion": "npm test",
-    "postversion": "git push --follow-tags && npm publish"
+    "version": "npm run build && git add .",
+    "postversion": "git push --follow-tags && npm publish",
+    "build": "inlinejs README.md -o README.md"
   },
   "repository": "eight04/wakfu-autobuild",
   "author": "eight04 <eight04@gmail.com>",
@@ -20,6 +22,7 @@
   "devDependencies": {
     "c8": "^7.1.2",
     "eslint": "^7.1.0",
+    "inline-js": "^0.8.0",
     "mocha": "^7.2.0"
   },
   "dependencies": {

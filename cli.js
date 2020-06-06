@@ -86,11 +86,11 @@ async function main(args) {
     onPieceGenerated,
   });
   console.log(`\nFinished in ${(Date.now() - startTime) / 1000}s`);
-  console.log("Damage factor: %O\n", damageFactor);
+  console.log("Score: %O\n", damageFactor);
   console.log(items.map(i => ({
     name: i.name,
     url: ` https://www.wakfu.com/en/mmorpg/encyclopedia/weapons/${i.id} `,
-    ...Object.fromEntries(simplifyEffects(i.effects))
+    ...(args["--verbose"] ? Object.fromEntries(simplifyEffects(i.effects)) : null) // FIXME: add verbose flag?
   })));
   return;
   

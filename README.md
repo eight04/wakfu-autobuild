@@ -18,7 +18,7 @@ npm install -g wakfu-autobuild
 
 Usage
 -----
-
+<!--$inline.start("cmd:node cli -h|markdown:codeblock")-->
 ```
 Usage:
   wakfu-autobuild [options]
@@ -30,13 +30,22 @@ Options:
   --require=<constrains>            a comma separated constrain list. Each constrain is composed by a property name,
                                     the "=" symbol, and a value. Example: "ap=5,control=3"
               
+  --base-ap=<number>                base ap. [default: 7]
   --base-mastery=<number>           base mastery given by passive or buff. [default: 0]
   --base-critical-hit=<number>      base critical hit % given by passive or buff. [default: 0]
   --base-critical-mastery=<number>  base critical mastery given by passive or buff. [default: 0]
+  --base-damage-inflicted=<number>  base damage inflicted %. [default: 0]
   
   --second-mastery=<masteries>      a comma separated secondary mastery list. Example: "singleTarget,melee".
+  
+  --disable-category=<types>        a comma separated category list. Example: "costume,accessory"
+  
+  --ap-to-damage                    calculate ap as a damage modifier.
+  --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
+                                    range.
 
 ```
+<!--$inline.end-->
 
 Details:
 
