@@ -7,6 +7,8 @@ wakfu-autobuild
 
 A CLI tool that can find the equipment combination with the highest damage factor.
 
+![screenshot](https://i.imgur.com/g56lgHz.png)
+
 Install
 -------
 
@@ -132,6 +134,6 @@ Issues
 Changelog
 ---------
 
-* 0.1.0 (Next)
+* 0.1.0 (Jun 6, 2020)
 
   - Initial release.
