@@ -1,4 +1,4 @@
-const camelcase = require("camelcase");
+/* eslint-disable no-console */
 const {getItems} = require("./lib/items");
 
 (async () => {

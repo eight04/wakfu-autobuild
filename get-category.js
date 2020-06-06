@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const camelcase = require("camelcase");
 const {getItems} = require("./lib/items");
 
