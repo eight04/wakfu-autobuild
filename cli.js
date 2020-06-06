@@ -80,13 +80,13 @@ async function main(args) {
   const startTime = Date.now();
   let screenSize = 0;
   
-  const {items, damageFactor} = await solve({
+  const {items, score} = await solve({
     ...options,
     onResultUpdate,
     onPieceGenerated,
   });
   console.log(`\nFinished in ${(Date.now() - startTime) / 1000}s`);
-  console.log("Score: %O\n", damageFactor);
+  console.log("Score: %O\n", score);
   console.log(items.map(i => ({
     name: i.name,
     url: ` https://www.wakfu.com/en/mmorpg/encyclopedia/weapons/${i.id} `,
@@ -105,7 +105,7 @@ async function main(args) {
     }
   }
   
-  function onPieceGenerated(order, categories) {
+  function onPieceGenerated(categories) {
     console.log("Number of equipments in each category: %O\n", Object.fromEntries([...categories].map(c => [camelcase(c[0]), c[1].length])));
   }
   
