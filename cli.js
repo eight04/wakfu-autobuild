@@ -106,7 +106,7 @@ async function main(args) {
   }
   
   function onPieceGenerated(categories) {
-    console.log("Number of equipments in each category: %O\n", Object.fromEntries([...categories].map(c => [camelcase(c[0]), c[1].length])));
+    console.log("Number of equipments in each category: %O\n", Object.fromEntries([...categories].map(c => [camelcase(c[0]), c[1].size])));
   }
   
   function onResultUpdate(tried, solve, damageFactor, pieces) {
