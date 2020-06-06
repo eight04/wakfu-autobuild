@@ -1,0 +1,33 @@
+{
+  "name": "wakfu-autobuild",
+  "version": "0.0.0",
+  "description": "Pick the best set automatically",
+  "keywords": [
+    "wakfu"
+  ],
+  "main": "index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "eslint \"**/*.js\" --cache",
+    "preversion": "npm test",
+    "postversion": "git push --follow-tags && npm publish"
+  },
+  "repository": "eight04/wakfu-autobuild",
+  "author": "eight04 <eight04@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "c8": "^7.1.2",
+    "eslint": "^7.1.0",
+    "mocha": "^7.2.0"
+  },
+  "dependencies": {
+    "cacache": "^15.0.4",
+    "camelcase": "^6.0.0",
+    "make-fetch-happen": "^5.0.2",
+    "neodoc": "^2.0.2",
+    "temp-dir": "^2.0.0"
+  },
+  "bin": "./cli.js"
+}
