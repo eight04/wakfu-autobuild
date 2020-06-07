@@ -30,7 +30,7 @@ Options:
                                     range.
 `);
 
-const util = require("util");
+// const util = require("util");
 const readline = require("readline");
 const camelcase = require("camelcase");
 const {solve} = require("./lib/solver");
@@ -82,7 +82,7 @@ async function main(args) {
   
   const {items, score} = await solve({
     ...options,
-    onResultUpdate,
+    onProgress,
     onPieceGenerated,
   });
   console.log(`\nFinished in ${(Date.now() - startTime) / 1000}s`);
@@ -109,19 +109,13 @@ async function main(args) {
     console.log("Number of equipments in each category: %O\n", Object.fromEntries([...categories].map(c => [camelcase(c[0]), c[1].size])));
   }
   
-  function onResultUpdate(tried, solve, damageFactor, pieces) {
+  function onProgress(left, right) {
     for (let i = 0; i < screenSize; i++) {
       readline.moveCursor(process.stdout, 0, -1);
       readline.clearLine(process.stdout, 0);
     }
     
-    const screen = util.formatWithOptions(
-      {colors: true},
-      "Progessing... %O / %O\n%O",
-      solve,
-      tried,
-      pieces.map(p => p.item.name)
-    );    
+    const screen = `Progessing...\n${left[0]}/${right[0]} (${left[1].size} x ${right[1].size})`;
     screenSize = screen.match(/\n/g).length + 1;
     
     console.log(screen);
