@@ -30,8 +30,6 @@ Options:
                                     range.
 `);
 
-// const util = require("util");
-const readline = require("readline");
 const camelcase = require("camelcase");
 const {solve} = require("./lib/solver");
 
@@ -78,7 +76,7 @@ async function main(args) {
   console.log("Input: %O\n", options);
   
   const startTime = Date.now();
-  let screenSize = 0;
+  // let screenSize = 0;
   
   const {items, score} = await solve({
     ...options,
@@ -87,37 +85,24 @@ async function main(args) {
   });
   console.log(`\nFinished in ${(Date.now() - startTime) / 1000}s`);
   console.log("Score: %O\n", score);
-  console.log(items.map(i => ({
-    name: i.name,
-    url: ` https://www.wakfu.com/en/mmorpg/encyclopedia/weapons/${i.id} `,
-    ...(args["--verbose"] ? Object.fromEntries(simplifyEffects(i.effects)) : null) // FIXME: add verbose flag?
-  })));
+  console.dir(items.map(itemToDetail), {depth: null});
   return;
   
-  function *simplifyEffects(effects) {
-    for (const [name, params] of effects) {
-      if (!params.length) continue;
-      if (params.length === 1) {
-        yield [name, params[0]];
-        continue;
-      }
-      yield [name, params];
+  function itemToDetail(item) {
+    if (Array.isArray(item)) {
+      return item.map(itemToDetail);
     }
+    return {
+      name: item.name,
+      url: ` https://www.wakfu.com/en/mmorpg/encyclopedia/weapons/${item.id} `
+    };
   }
   
   function onPieceGenerated(categories) {
-    console.log("Number of equipments in each category: %O\n", Object.fromEntries([...categories].map(c => [camelcase(c[0]), c[1].size])));
+    console.log("Number of equipments in each category: %O\n\nProgressing...", Object.fromEntries([...categories].map(c => [camelcase(c[0]), c[1].size])));
   }
   
   function onProgress(left, right) {
-    for (let i = 0; i < screenSize; i++) {
-      readline.moveCursor(process.stdout, 0, -1);
-      readline.clearLine(process.stdout, 0);
-    }
-    
-    const screen = `Progessing...\n${left[0]}/${right[0]} (${left[1].size} x ${right[1].size})`;
-    screenSize = screen.match(/\n/g).length + 1;
-    
-    console.log(screen);
+    console.log(`${left[0]}/${right[0]} (${left[1].size} x ${right[1].size})`);
   }
 }
