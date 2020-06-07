@@ -134,6 +134,11 @@ Issues
 Changelog
 ---------
 
+* 0.2.0 (Jun 7, 2020)
+
+  - Rewrite the solver, improve performance.
+  - Display alternative item in the result.
+
 * 0.1.0 (Jun 6, 2020)
 
   - Initial release.
