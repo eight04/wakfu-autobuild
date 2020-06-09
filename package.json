@@ -10,7 +10,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "eslint \"**/*.js\" --cache",
+    "test": "eslint \"**/*.js\" --cache && c8 --reporter lcov mocha",
     "preversion": "npm test",
     "version": "npm run build && git add .",
     "postversion": "git push --follow-tags && npm publish",
