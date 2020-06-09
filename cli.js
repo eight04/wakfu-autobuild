@@ -24,6 +24,7 @@ Options:
   --second-mastery=<masteries>      a comma separated secondary mastery list. Example: "singleTarget,melee".
   
   --disable-category=<types>        a comma separated category list. Example: "costume,accessory"
+  --disable-item=<ids>              a comma separated list of item id. Example: "24674,22609"
   
   --ap-to-damage                    calculate ap as a damage modifier.
   --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
@@ -37,7 +38,8 @@ const CAST_OPTION = {
   element: ["elements"],
   require: ["requires", commaPairs],
   secondMastery: ["secondMasteries", commaList],
-  disableCategory: ["disableCategories", commaList]
+  disableCategory: ["disableCategories", commaList],
+  disableItem: ["disableItems", commaListNumber]
 };
 
 main(args).catch(err => {
@@ -56,8 +58,12 @@ function commaPairs(input) {
 
 function commaList(input) {
   if (!input) return [];
-  
+  if (typeof input !== "string") return [input];
   return input.split(",").map(t => t.trim());
+}
+
+function commaListNumber(input) {
+  return commaList(input).map(Number);
 }
 
 async function main(args) {
