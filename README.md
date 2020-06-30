@@ -18,7 +18,7 @@ npm install -g wakfu-autobuild
 
 Usage
 -----
-<!--$inline.start("cmd:node cli -h|markdown:codeblock")-->
+<!--$inline.start("cmd:node cli -h|trim|markdown:codeblock")-->
 ```
 Usage:
   wakfu-autobuild [options]
@@ -38,7 +38,7 @@ Options:
   
   --second-mastery=<masteries>      a comma separated secondary mastery list. Example: "singleTarget,melee".
   
-  --disable-category=<types>        a comma separated category list. Example: "costume,accessory"
+  --disable-category=<types>        a comma separated category list. Example: "accessory,back"
   
   --ap-to-damage                    calculate ap as a damage modifier.
   --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
@@ -113,13 +113,13 @@ Examples
 *Find some equipments for 12ap, lv.155, AoE, fire/earth Cra*
 
 ```
-wakfu-autobuild --level 155 --element 2 --require control=2,ap=5 --base-mastery 334 --base-critical-hit 33 --base-critical-mastery 208 --base-damage-inflicted 44 --second-mastery distance,area --disable-category costume,accessory --range-to-damage
+wakfu-autobuild --level 155 --element 2 --require control=2,ap=5 --base-mastery 334 --base-critical-hit 33 --base-critical-mastery 208 --base-damage-inflicted 44 --second-mastery distance,area --disable-category accessory --range-to-damage
 ```
 
 *Find some equipments for lv.140 Astrub Knight*
 
 ```
-wakfu-autobuild --level 140 --element 1 --require mp=2 --base-mastery 301 --base-critical-hit 11  --second-mastery singleTarget,melee --disable-category costume,accessory --ap-to-damage
+wakfu-autobuild --level 140 --element 1 --require mp=2 --base-mastery 301 --base-critical-hit 11  --second-mastery singleTarget,melee --disable-category accessory --ap-to-damage
 ```
 
 Issues
