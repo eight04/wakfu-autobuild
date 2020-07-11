@@ -23,6 +23,8 @@ Options:
   
   --second-mastery=<masteries>      a comma separated secondary mastery list. Example: "singleTarget,melee".
   
+  --major=<number>                  calculate major points. [default: 0]
+  
   --disable-category=<types>        a comma separated category list. Example: "costume,accessory"
   --disable-item=<ids>              a comma separated list of item id. Example: "24674,22609"
   
@@ -97,6 +99,11 @@ async function main(args) {
   function itemToDetail(item) {
     if (Array.isArray(item)) {
       return item.map(itemToDetail);
+    }
+    if (item.type === "MAJOR") {
+      return {
+        name: item.name
+      };
     }
     return {
       name: item.name,
