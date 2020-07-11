@@ -15,7 +15,7 @@ Options:
   --require=<constrains>            a comma separated constrain list. Each constrain is composed by a property name,
                                     the "=" symbol, and a value. Example: "ap=5,control=3"
               
-  --base-ap=<number>                base ap. [default: 7]
+  --base-ap=<number>                base ap. [default: 6]
   --base-mastery=<number>           base mastery given by passive or buff. [default: 0]
   --base-critical-hit=<number>      base critical hit % given by passive or buff. [default: 0]
   --base-critical-mastery=<number>  base critical mastery given by passive or buff. [default: 0]
