@@ -140,7 +140,7 @@ Issues
 Changelog
 ---------
 
-* 0.3.0 (Jul 12, 2020)
+* 0.3.0 (Next)
 
   - Add: ability to calculate major points.
   - Add: `--pool-size` option.
