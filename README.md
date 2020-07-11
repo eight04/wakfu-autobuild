@@ -144,7 +144,7 @@ Changelog
 
   - Add: ability to calculate major points.
   - Add: `--pool-size` option.
-  - **Breaking: decrease default ap from 7 to 6**
+  - **Breaking: decrease default ap from 7 to 6. This affects the score.**
 
 * 0.2.0 (Jun 7, 2020)
 
