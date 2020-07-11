@@ -31,6 +31,9 @@ Options:
   --ap-to-damage                    calculate ap as a damage modifier.
   --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
                                     range.
+                                    
+  --pool-size=<number>              if the number of combination exceeds this number, stop compressing the pool to
+                                    increase calculation speed. However, it will use more memory. [default: 15000]
 `);
 
 const camelcase = require("camelcase");
