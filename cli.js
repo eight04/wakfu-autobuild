@@ -33,7 +33,7 @@ Options:
                                     range.
                                     
   --pool-size=<number>              if the number of combination exceeds this number, stop compressing the pool to
-                                    increase calculation speed. However, it will use more memory. [default: 15000]
+                                    increase calculation speed. However, it will use more memory. [default: 5000]
 `);
 
 const camelcase = require("camelcase");
