@@ -33,7 +33,7 @@ Options:
                                     range.
                                     
   --pool-size=<number>              if the number of combination exceeds this number, stop compressing the pool to
-                                    increase calculation speed. However, it will use more memory. [default: 15000]
+                                    increase calculation speed. However, it will use more memory. [default: 5000]
 `);
 
 const camelcase = require("camelcase");
@@ -115,10 +115,16 @@ async function main(args) {
   }
   
   function onPieceGenerated(categories) {
-    console.log("Number of equipments in each category: %O\n\nProgressing...", Object.fromEntries([...categories].map(c => [camelcase(c[0]), c[1].size])));
+    console.log("Number of equipments in each category: %O\n\nProgressing...", Object.fromEntries(
+      [...categories].map(c => [camelcase(c[0]), getSize(c[1])])
+    ));
   }
   
   function onProgress(left, right) {
-    console.log(`${left[0]}/${right[0]} (${left[1].size} x ${right[1].size})`);
+    console.log(`${left[0]}/${right[0]} (${getSize(left[1])} x ${getSize(right[1])})`);
+  }
+  
+  function getSize(cates) {
+    return cates.reduce((n, s) => n + s.size, 0);
   }
 }
