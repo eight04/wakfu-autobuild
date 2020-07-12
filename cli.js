@@ -35,10 +35,14 @@ Options:
                                     
   --pool-size=<number>              if the number of combination exceeds this number, stop compressing the pool to
                                     increase calculation speed. However, it will use more memory. [default: 5000]
+                                    
+  
+  --score-only                      do not search for items but only calculate the score of the current stat given
+                                    by --base-xxx options.
 `);
 
 const camelcase = require("camelcase");
-const {solve} = require("./lib/solver");
+const {solve, calcScore} = require("./lib/solver");
 
 const CAST_OPTION = {
   element: ["elements"],
@@ -84,6 +88,11 @@ async function main(args) {
     } else {
       options[lowKey] = args[key];
     }
+  }
+  
+  if (options.scoreOnly) {
+    console.log("Score: %O\n", calcScore(options));
+    return;
   }
   
   console.log("Input: %O\n", options);
