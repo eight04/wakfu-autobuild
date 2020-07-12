@@ -128,6 +128,12 @@ wakfu-autobuild --level 155 --element 2 --require control=2,ap=5 --base-mastery 
 wakfu-autobuild --level 140 --element 1 --require mp=2 --base-mastery 301 --base-critical-hit 11  --second-mastery singleTarget,melee --disable-category accessory --ap-to-damage
 ```
 
+*Calculate the score of autobuild for lv.166 pandora*
+
+```
+wakfu-autobuild --base-ap 12 --base-mastery 1148 --base-critical-hit 38 --ap-to-damage --score-only
+```
+
 Issues
 ------
 
@@ -140,11 +146,15 @@ Issues
 Changelog
 ---------
 
-* 0.3.0 (Next)
+* 0.3.0 (Jul 13, 2020)
 
-  - Add: ability to calculate major points.
-  - Add: `--pool-size` option.
-  - **Breaking: decrease default ap from 7 to 6. This affects the score.**
+  - Fix: solve negative effects correctly.
+  - Add: `--major` option.
+  - Add: `--disable-item` and `--use-item` options.
+  - Add: `--score-only` option.
+  - Add: `--pool-size` option. Improve performance.
+  - **Breaking: decrease default ap from 7 to 6. This affects the final score.**
+  - Breaking: exclude costume.
 
 * 0.2.0 (Jun 7, 2020)
 
