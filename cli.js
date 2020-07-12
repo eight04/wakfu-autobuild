@@ -15,7 +15,7 @@ Options:
   --require=<constrains>            a comma separated constrain list. Each constrain is composed by a property name,
                                     the "=" symbol, and a value. Example: "ap=5,control=3"
               
-  --base-ap=<number>                base ap. [default: 7]
+  --base-ap=<number>                base ap. [default: 6]
   --base-mastery=<number>           base mastery given by passive or buff. [default: 0]
   --base-critical-hit=<number>      base critical hit % given by passive or buff. [default: 0]
   --base-critical-mastery=<number>  base critical mastery given by passive or buff. [default: 0]
@@ -23,12 +23,17 @@ Options:
   
   --second-mastery=<masteries>      a comma separated secondary mastery list. Example: "singleTarget,melee".
   
+  --major=<number>                  calculate major points. [default: 0]
+  
   --disable-category=<types>        a comma separated category list. Example: "costume,accessory"
   --disable-item=<ids>              a comma separated list of item id. Example: "24674,22609"
   
   --ap-to-damage                    calculate ap as a damage modifier.
   --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
                                     range.
+                                    
+  --pool-size=<number>              if the number of combination exceeds this number, stop compressing the pool to
+                                    increase calculation speed. However, it will use more memory. [default: 15000]
 `);
 
 const camelcase = require("camelcase");
@@ -97,6 +102,11 @@ async function main(args) {
   function itemToDetail(item) {
     if (Array.isArray(item)) {
       return item.map(itemToDetail);
+    }
+    if (item.type === "MAJOR") {
+      return {
+        name: item.name
+      };
     }
     return {
       name: item.name,

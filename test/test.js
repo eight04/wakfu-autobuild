@@ -3,6 +3,7 @@
 const assert = require("assert");
 
 const {solve} = require("../lib/solver");
+const {combination} = require("../lib/util");
 
 it("solve with negative effects", async () => {
   const {items} = await solve({
@@ -49,4 +50,20 @@ it("solve with negative effects", async () => {
     HEAD: "B",
     NECK: "D"
   });
+});
+
+
+it("combination", () => {
+  assert.deepStrictEqual([...combination([1, 2, 3, 4, 5], 3)], [
+    [1, 2, 3],
+    [1, 2, 4],
+    [1, 2, 5],
+    [1, 3, 4],
+    [1, 3, 5],
+    [1, 4, 5],
+    [2, 3, 4],
+    [2, 3, 5],
+    [2, 4, 5],
+    [3, 4, 5]
+  ]);
 });

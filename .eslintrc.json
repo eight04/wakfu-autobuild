@@ -6,7 +6,7 @@
 	"rules": {
 		"dot-notation": 2,
 		"max-statements-per-line": 2,
-		"no-console": [1, {"allow": ["warn", "error"]}],
+		"no-console": [2, {"allow": ["warn", "error"]}],
 		"semi": [2, "always"]
 	},
   "parserOptions": {
