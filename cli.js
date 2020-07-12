@@ -27,6 +27,7 @@ Options:
   
   --disable-category=<types>        a comma separated category list. Example: "costume,accessory"
   --disable-item=<ids>              a comma separated list of item id. Example: "24674,22609"
+  --use-item=<ids>                  a comma separated list of item id. Example: "26581,17543"
   
   --ap-to-damage                    calculate ap as a damage modifier.
   --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
@@ -44,7 +45,8 @@ const CAST_OPTION = {
   require: ["requires", commaPairs],
   secondMastery: ["secondMasteries", commaList],
   disableCategory: ["disableCategories", commaList],
-  disableItem: ["disableItems", commaListNumber]
+  disableItem: ["disableItems", commaListNumber],
+  useItem: ["useItems", commaListNumber]
 };
 
 main(args).catch(err => {
