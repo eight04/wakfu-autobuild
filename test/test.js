@@ -3,7 +3,7 @@
 const assert = require("assert");
 
 const {solve} = require("../lib/solver");
-const {combination} = require("../lib/util");
+const {combination, product} = require("../lib/util");
 
 it("solve with negative effects", async () => {
   const {items} = await solve({
@@ -66,4 +66,25 @@ it("combination", () => {
     [2, 4, 5],
     [3, 4, 5]
   ]);
+});
+
+it("product", () => {
+  const list = [
+    [[1, 2], [], [], []],
+    [[3, 4], [], [], []]
+  ];
+  assert.deepStrictEqual([...product(list)], [
+    [1, 3],
+    [1, 4],
+    [2, 3],
+    [2, 4]
+  ]);
+});
+
+it("product conflict", () => {
+  const list = [
+    [[], [1, 2], [], []],
+    [[], [5, 6], [], [7, 8]]
+  ];
+  assert.deepStrictEqual([...product(list)], []);
 });
