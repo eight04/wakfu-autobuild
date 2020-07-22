@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /* eslint-disable no-console */
-
+const Events = require("events");
 const neodoc = require("neodoc");
 
 const args = neodoc.run(`
@@ -33,10 +33,6 @@ Options:
   --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
                                     range.
                                     
-  --pool-size=<number>              if the number of combination exceeds this number, stop compressing the pool to
-                                    increase calculation speed. However, it will use more memory. [default: 5000]
-                                    
-  
   --score-only                      do not search for items but only calculate the score of the current stat given
                                     by --base-xxx options.
 `);
@@ -98,12 +94,26 @@ async function main(args) {
   console.log("Input: %O\n", options);
   
   const startTime = Date.now();
-  // let screenSize = 0;
+  const events = new Events;
+  
+  events.on("pieceGenerated", categories => {
+    console.log("Number of equipments in each category: %O\n\nProgressing...", Object.fromEntries(
+      [...categories].map(c => [camelcase(c[0]), getSize(c[1])])
+    ));
+  });
+  events.on("mergeStart", ([left, right]) => {
+    console.log(`\nMerge two categories: ${left.tag}/${right.tag} (${getSize(left.sets)} x ${getSize(right.sets)})`);
+  });
+  events.on("mergeEnd", ({elapse, sets}) => {
+    console.log("Finished in %Os, got %O combinations", elapse / 1000, getSize(sets));
+  });
+  events.on("searchStart", pending => {
+    console.log(`\nStart searching: ${pending.map(p => `${p.tag} (${getSize(p.sets)})`).join(" x ")}`);
+  });
   
   const {items, score} = await solve({
     ...options,
-    onProgress,
-    onPieceGenerated,
+    events
   });
   console.log(`\nFinished in ${(Date.now() - startTime) / 1000}s`);
   console.log("Score: %O\n", score);
@@ -123,16 +133,6 @@ async function main(args) {
       name: item.name,
       url: ` https://www.wakfu.com/en/mmorpg/encyclopedia/weapons/${item.id} `
     };
-  }
-  
-  function onPieceGenerated(categories) {
-    console.log("Number of equipments in each category: %O\n\nProgressing...", Object.fromEntries(
-      [...categories].map(c => [camelcase(c[0]), getSize(c[1])])
-    ));
-  }
-  
-  function onProgress(left, right) {
-    console.log(`${left.tag}/${right.tag} (${getSize(left.sets)} x ${getSize(right.sets)})`);
   }
   
   function getSize(cates) {
