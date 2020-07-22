@@ -48,10 +48,6 @@ Options:
   --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
                                     range.
                                     
-  --pool-size=<number>              if the number of combination exceeds this number, stop compressing the pool to
-                                    increase calculation speed. However, it will use more memory. [default: 5000]
-                                    
-  
   --score-only                      do not search for items but only calculate the score of the current stat given
                                     by --base-xxx options.
 ```
