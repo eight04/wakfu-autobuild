@@ -132,7 +132,7 @@ async function main(args) {
   }
   
   function onProgress(left, right) {
-    console.log(`${left[0]}/${right[0]} (${getSize(left[1])} x ${getSize(right[1])})`);
+    console.log(`${left.tag}/${right.tag} (${getSize(left.sets)} x ${getSize(right.sets)})`);
   }
   
   function getSize(cates) {
