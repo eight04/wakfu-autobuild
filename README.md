@@ -65,7 +65,7 @@ Details:
 
 * `--ap-to-damage` calculates AP as a damage modifier since you can cast more spells with more AP. However this is not strictly true because some spells have cooldown and can't be used multiple times in one turn.
 
-* `--major` option treats major points as an item and find the best combination with other equipment. You get one major point at level 25, 75, 125, and 175.
+* `--major` option treats major points as items and find the best combination with other equipment. You get one major point at level 25, 75, 125, and 175.
 
   If you want to exclude/use specific majors, target them with id 1~7.
 
@@ -155,6 +155,11 @@ Issues
 
 Changelog
 ---------
+
+* 0.4.0 (Jul 23, 2020)
+
+  - Fix: dfs the final result to avoid memory overflow.
+  - Breaking: drop --pool-size option.
 
 * 0.3.0 (Jul 13, 2020)
 
