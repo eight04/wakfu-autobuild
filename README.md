@@ -59,17 +59,15 @@ Options:
 
 Details:
 
-* Equipments whose level > `--level` are excluded. It doesn't calculate kit skill.
+* Equipment whose level > `--level` are excluded. It doesn't calculate kit skill.
 
 * `--element` decides how to calculate elemental mastery. Suppose an equipment gives 100 mastery in two elements. The tool adds 100 mastery for single-element character and adds 100 * 2 / 3 mastery for tri-element character.
 
 * `--ap-to-damage` calculates AP as a damage modifier since you can cast more spells with more AP. However this is not strictly true because some spells have cooldown and can't be used multiple times in one turn.
 
-* Let this tool help you distribute major points by using `--major` option. You get one major point at level 25, 75, 125, and 175.
+* `--major` option treats major points as an item and find the best combination with other equipment. You get one major point at level 25, 75, 125, and 175.
 
   If you want to exclude/use specific majors, target them with id 1~7.
-
-* This tool tries to avoid "bad gear". If all stats of the combination are lower than another, the combination will be excluded to save memory. Since this requires the tool to compare each set with each other, it greatly increases calculation time when the number of combination is large. Therefore, if the total number of all combination reachs `--pool-size`, we don't try to find "bad gear" anymore.
 
 * Available options for `--require`:
 
@@ -152,6 +150,8 @@ Issues
 2. Static elemental mastery might not work correctly. To simplify the process e.g. "15 water mastery" will be converted to "15 mastery of 1 element".
 
 3. Some classes get extra damage with specific stat e.g. Cra gains 3% damage inflicted for each `range`. Currently they are hand-crafted. Please raise feature requests to add more for other classes.
+
+4. Set effects are not included. This affects the search result for low level items (and PvP items?).
 
 Changelog
 ---------
