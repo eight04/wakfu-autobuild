@@ -25,6 +25,7 @@ Usage:
 
 Options:
   --level=<number>                  character level. [default: 1]
+  --min-level=<number>              minimum item level. [default: 1]
   --element=<number>                number of elements that the character uses. [default: 1]
   
   --require=<constrains>            a comma separated constrain list. Each constrain is composed by a property name,
@@ -55,7 +56,7 @@ Options:
 
 Details:
 
-* Equipment whose level > `--level` are excluded. It doesn't calculate kit skill.
+* Equipment whose level is lower `--min-level` and higher `--level` are excluded. It doesn't calculate kit skill.
 
 * `--element` decides how to calculate elemental mastery. Suppose an equipment gives 100 mastery in two elements. The tool adds 100 mastery for single-element character and adds 100 * 2 / 3 mastery for tri-element character.
 

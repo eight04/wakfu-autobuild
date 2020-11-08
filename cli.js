@@ -10,6 +10,7 @@ Usage:
 
 Options:
   --level=<number>                  character level. [default: 1]
+  --min-level=<number>              minimum item level. [default: 1]
   --element=<number>                number of elements that the character uses. [default: 1]
   
   --require=<constrains>            a comma separated constrain list. Each constrain is composed by a property name,
