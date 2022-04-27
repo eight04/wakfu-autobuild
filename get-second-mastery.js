@@ -4,7 +4,7 @@ const {getItems} = require("./lib/items");
 
 (async () => {
   const items = await getItems();
-  console.log([...new Set(secondMasteries())]);
+  console.log([...new Set(secondMasteries())].sort());
   
   function *secondMasteries() {
     for (const item of items) {
