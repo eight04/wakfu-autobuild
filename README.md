@@ -138,12 +138,11 @@ wakfu-autobuild --level 140 --element 1 --require mp=2 --base-mastery 301 --base
 wakfu-autobuild --base-ap 12 --base-mastery 1148 --base-critical-hit 38 --ap-to-damage --score-only
 ```
 
-Issues
+Known issues
 ------
 
-1. Wakfu didn't provide useful information about pets and mounts. Please provide these extra mastery/critical via `--base-mastery`/`--base-critical-hit`/`--base-critical-mastery` options.
-
-2. Static elemental mastery might not work correctly. To simplify the process e.g. "15 water mastery" will be converted to "15 mastery of 1 element".
+1. Static elemental mastery might not work correctly. To simplify the process e.g. "15 water mastery" will be converted to "15 mastery of 1 element".
+2. Per (1), if an item (e.g. [Catastro Cards](https://www.wakfu.com/en/mmorpg/encyclopedia/weapons/9963-katastro-cards)) has two (or more) static elemental mastery and `--element` is set to 1, the solver would incrrectly add all elemental mastery into the result.
 
 3. Some classes get extra damage with specific stat e.g. Cra gains 3% damage inflicted for each `range`. Currently they are hand-crafted. Please raise feature requests to add more for other classes.
 
