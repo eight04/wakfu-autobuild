@@ -160,6 +160,11 @@ However, this won't work when the tool itself has changed. For example, 0.4.0 do
 Changelog
 ---------
 
+* 0.4.1 (Apr 28, 2022)
+
+  - Add: `--min-level` argument.
+  - Add: support pets and mounts.
+
 * 0.4.0 (Jul 23, 2020)
 
   - Fix: dfs the final result to avoid memory overflow.
