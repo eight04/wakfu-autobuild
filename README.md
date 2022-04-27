@@ -124,13 +124,13 @@ Examples
 *Find some equipments for 12ap, lv.155, AoE, fire/earth Cra*
 
 ```
-wakfu-autobuild --level 155 --element 2 --require control=2,ap=5 --base-mastery 334 --base-critical-hit 33 --base-critical-mastery 208 --base-damage-inflicted 44 --second-mastery distance,area --disable-category accessory --range-to-damage
+wakfu-autobuild --level 155 --element 2 --require control=2 --base-mastery 334 --base-critical-hit 33 --base-critical-mastery 208 --base-damage-inflicted 44 --second-mastery distance,area --disable-category accessory --range-to-damage --ap-to-damage --major 3
 ```
 
 *Find some equipments for lv.140 Astrub Knight*
 
 ```
-wakfu-autobuild --level 140 --element 1 --require mp=2 --base-mastery 301 --base-critical-hit 11  --second-mastery singleTarget,melee --disable-category accessory --ap-to-damage
+wakfu-autobuild --level 140 --element 1 --require mp=2 --base-mastery 301 --base-critical-hit 11  --second-mastery singleTarget,melee --ap-to-damage
 ```
 
 *Calculate the score of autobuild for lv.166 pandora*
@@ -147,7 +147,14 @@ Known issues
 
 3. Some classes get extra damage with specific stat e.g. Cra gains 3% damage inflicted for each `range`. Currently they are hand-crafted. Please raise feature requests to add more for other classes.
 
-4. Set effects are not included. This affects the search result for low level items (and PvP items?).
+1. Set effects are not included. This affects the search result for low level items (and PvP items?).
+
+Cache
+-----
+
+After fetching item data, it will be stored in the temporary folder (`%temp%/wakfu-autobuild` on Windows). While running, the tool checks wakfu version and decides whether to rebuild the item data.
+
+However, this won't work when the tool itself has changed. For example, 0.4.0 doesn't process pets and mounts and the bug had been fixed at 0.4.1. In this case, you have to delete the cache folder manually to make it rebuild item data.
 
 Changelog
 ---------
