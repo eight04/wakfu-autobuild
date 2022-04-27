@@ -70,19 +70,19 @@ Details:
     <!--$inline.start("cmd:node get-single-value-effect|trim|markdown:codeblock,js|indent")>-->
     ```js
     [
-      'hp',                 'criticalHit',
-      'control',            'dodge',
-      'block',              'initiative',
-      'lock',               'healingMastery',
-      'meleeMastery',       'singleTargetMastery',
-      'wisdom',             'kitSkill',
-      'ap',                 'distanceMastery',
-      'rearMastery',        'prospecting',
-      'areaMastery',        'criticalMastery',
-      'mp',                 'rearResistance',
-      'criticalResistance', 'range',
-      'berserkMastery',     'wp',
-      'forceOfWill'
+      'ap',                  'areaMastery',
+      'berserkMastery',      'block',
+      'control',             'criticalHit',
+      'criticalMastery',     'criticalResistance',
+      'distanceMastery',     'dodge',
+      'forceOfWill',         'healingMastery',
+      'hp',                  'initiative',
+      'kitSkill',            'lock',
+      'meleeMastery',        'mp',
+      'prospecting',         'range',
+      'rearMastery',         'rearResistance',
+      'singleTargetMastery', 'wisdom',
+      'wp'
     ]
     ```
     <!--$inline.end-->
@@ -91,13 +91,13 @@ Details:
     <!--$inline.start("cmd:node get-second-mastery|trim|markdown:codeblock,js|indent")-->
     ```js
     [
+      'area',
+      'berserk',
+      'distance',
       'healing',
       'melee',
-      'singleTarget',
-      'distance',
       'rear',
-      'area',
-      'berserk'
+      'singleTarget'
     ]
     ```
     <!--$inline.end-->
@@ -106,13 +106,14 @@ Details:
     <!--$inline.start("cmd:node get-category|trim|markdown:codeblock,js|indent")-->
     ```js
     [
-      'neck',        'ring',
-      'legs',        'back',
-      'belt',        'head',
-      'heavyWeapon', 'firstWeapon',
-      'shoulders',   'secondWeapon',
-      'accessory',   'chest',
-      'pet',         'costume'
+      'accessory', 'back',
+      'belt',      'chest',
+      'costume',   'firstWeapon',
+      'head',      'heavyWeapon',
+      'legs',      'mounts',
+      'neck',      'pet',
+      'ring',      'secondWeapon',
+      'shoulders'
     ]
     ```
     <!--$inline.end-->

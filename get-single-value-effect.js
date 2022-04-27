@@ -3,7 +3,7 @@ const {getItems} = require("./lib/items");
 
 (async () => {
   const items = await getItems();
-  console.log([...new Set(singleValueEffects())]);
+  console.log([...new Set(singleValueEffects())].sort());
   
   function *singleValueEffects() {
     for (const item of items) {
