@@ -144,7 +144,7 @@ Known issues
 ------
 
 1. Static elemental mastery might not work correctly. To simplify the process e.g. "15 water mastery" will be converted to "15 mastery of 1 element".
-2. Per (1), if an item (e.g. [Catastro Cards](https://www.wakfu.com/en/mmorpg/encyclopedia/weapons/9963-katastro-cards)) has two (or more) static elemental mastery and `--element` is set to 1, the solver would incrrectly add all elemental mastery into the result.
+2. Per (1), [Rokau's Club](https://www.wakfu.com/en/mmorpg/encyclopedia/weapons/14650-rokau-club) is treated as "20 mastery of 2 random elements".
 
 3. Some classes get extra damage with specific stat e.g. Cra gains 3% damage inflicted for each `range`. Currently they are hand-crafted. Please raise feature requests to add more for other classes.
 
@@ -160,7 +160,7 @@ However, this won't work when the tool itself has changed. For example, 0.4.0 do
 Changelog
 ---------
 
-* next
+* 0.4.2 (Apr 29, 2022)
 
   - Add: support `armorReceived` effect.
   - Fix: elemental mastery on pets/mounts doesn't scale with level.
