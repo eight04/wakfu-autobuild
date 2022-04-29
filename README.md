@@ -25,7 +25,7 @@ Usage:
 
 Options:
   --level=<number>                  character level. [default: 1]
-  --min-level=<number>              minimum item level. [default: 1]
+  --min-level=<number>              minimum item level. [default: 0]
   --element=<number>                number of elements that the character uses. [default: 1]
   
   --require=<constrains>            a comma separated constrain list. Each constrain is composed by a property name,
@@ -71,19 +71,19 @@ Details:
     <!--$inline.start("cmd:node get-single-value-effect|trim|markdown:codeblock,js|indent")>-->
     ```js
     [
-      'ap',                  'areaMastery',
-      'berserkMastery',      'block',
-      'control',             'criticalHit',
-      'criticalMastery',     'criticalResistance',
-      'distanceMastery',     'dodge',
-      'forceOfWill',         'healingMastery',
-      'hp',                  'initiative',
-      'kitSkill',            'lock',
-      'meleeMastery',        'mp',
-      'prospecting',         'range',
-      'rearMastery',         'rearResistance',
-      'singleTargetMastery', 'wisdom',
-      'wp'
+      'ap',                 'areaMastery',
+      'armorReceived',      'berserkMastery',
+      'block',              'control',
+      'criticalHit',        'criticalMastery',
+      'criticalResistance', 'distanceMastery',
+      'dodge',              'forceOfWill',
+      'healingMastery',     'hp',
+      'initiative',         'kitSkill',
+      'lock',               'meleeMastery',
+      'mp',                 'prospecting',
+      'range',              'rearMastery',
+      'rearResistance',     'singleTargetMastery',
+      'wisdom',             'wp'
     ]
     ```
     <!--$inline.end-->
