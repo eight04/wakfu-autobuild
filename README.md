@@ -160,6 +160,13 @@ However, this won't work when the tool itself has changed. For example, 0.4.0 do
 Changelog
 ---------
 
+* next
+
+  - Add: support `armorReceived` effect.
+  - Fix: elemental mastery on pets/mounts doesn't scale with level.
+  - Fix: `--level` and `--min-level` won't exclude pets/mounts anymore.
+  - Change: multiple static elemental mastery/resistance will be merge into a single effect. i.e. `15 fire mastery / 15 water mastery` would become `15 mastery of 2 random elements` instead of `15 mastery of 1 random elements / 15 mastery of 1 random elements`
+
 * 0.4.1 (Apr 28, 2022)
 
   - Add: `--min-level` argument.
