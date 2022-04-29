@@ -17,6 +17,7 @@ Options:
                                     the "=" symbol, and a value. Example: "ap=5,control=3"
               
   --base-ap=<number>                base ap. [default: 6]
+  --base-mp=<number>                base mp. [default: 3]
   --base-mastery=<number>           base mastery given by passive or buff. [default: 0]
   --base-critical-hit=<number>      base critical hit % given by passive or buff. [default: 0]
   --base-critical-mastery=<number>  base critical mastery given by passive or buff. [default: 0]
@@ -30,6 +31,7 @@ Options:
   --disable-item=<ids>              a comma separated list of item id. Example: "24674,22609"
   --use-item=<ids>                  a comma separated list of item id. Example: "26581,17543"
   
+  --mp-to-ap                        calculate mp as ap.
   --ap-to-damage                    calculate ap as a damage modifier.
   --range-to-damage                 calculate range as a damage modifier. This adds 3 damage inflicted for each
                                     range.
